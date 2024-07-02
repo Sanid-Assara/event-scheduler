@@ -5,6 +5,7 @@ import Events from "./components/Events";
 import CreateEvent from "./components/CreateEvent";
 import SignIn from "./components/SignIn";
 import SignUp from "./components/SignUp";
+import PageNotFound from "./components/PageNotFound";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -17,7 +18,7 @@ import {
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/">
+      <Route path="/" errorElement={<PageNotFound />}>
         <Route index element={<Home />} />
         <Route path="/create-event" element={<CreateEvent />} />
         <Route path="/event" element={<Event />} />
