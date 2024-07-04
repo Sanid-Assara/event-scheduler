@@ -1,3 +1,3 @@
 export default function Home() {
-  return <p className="outline">Home Page</p>;
+  return <p className=" text-red-600">Home Page</p>;
 }
