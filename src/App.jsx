@@ -1,5 +1,4 @@
 import "./App.css";
-import Home from "./components/Home";
 import EventPage from "./components/EventPage";
 import Events from "./components/Events";
 import CreateEvent from "./components/CreateEvent";
@@ -20,10 +19,10 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" errorElement={<PageNotFound />} element={<PageLayout />}>
-        <Route index element={<Home />} />
+        <Route index element={<Events />} />
         <Route path="/create-event" element={<CreateEvent />} />
-        <Route path="/event-page" element={<EventPage />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/events/:id" element={<EventPage />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Route>
