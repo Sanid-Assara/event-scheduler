@@ -1,36 +1,77 @@
 import { RiLockPasswordFill } from "react-icons/ri";
-import { FaUser } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 
 export default function SignIn() {
 
+  const [user, setUser] = useState({
+    email:"",
+    password:""
+  });
+const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    if (!user.email || !user.password) {
+      alert('All fields need to be filled in');
+      return;
+    };
+
+    try {
+      const response = await fetch('http://localhost:3001/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(user),
+      });
+    
+    const data = await response.json();
+    if(data.error) {
+      alert(data.error);
+    } else {
+      alert('You are succesfully logged in!');
+      localStorage.setItem("token", data.token);
+      navigate('/');
+    }
+  } catch (error) { 
+    alert(error);
+  } }
+
   return (
-    <div className=" border .border.solid m-20 bg-red-500">
-      <div className="flex gap-4 justify-center items-center m-20 text-5xl text-white ">
-        <h1 className="">Log In</h1>
-      </div>
+    
+
+    
+    <div id="container" className="bg-red-500">
+      <div className="m-20 p-20 text-6xl text-white ">
+        <h1 >Log In</h1>
+        <p className="">______</p>
+        </div>
       <div className=" ">
         
-        <div className="flex justify-center mb-10 gap-4  items-center p-4 ">
+        <div className="flex justify-center mb-10 gap-4  items-center  ">
           <label className="flex justify-center items-center border .border.solid bg-white rounded-xl ">
-        <FaUser size={20} className="m-4 "></FaUser>
-           <input type="text" placeholder="Username" className="text-bold text-xl outline-none" />
+        <MdEmail size={20} className="m-4 "></MdEmail>
+           <input type="email" placeholder="E-Mail" value={user.email} onChange={(e) => setUser({...user, email: e.target.value})} className="text-bold text-xl outline-none" />
            </label>
         </div>
 
         <div className="flex justify-center mb-10 gap-4  items-center p-4 ">
           <label className="flex justify-center items-center border .border.solid bg-white rounded-xl ">
         <RiLockPasswordFill size={20} className="m-4 "></RiLockPasswordFill>
-           <input type="text" placeholder="Password" className="outline-none text-xl" />
+           <input type="password" placeholder="Password" value={user.password} onChange={(e) => setUser({...user, password: e.target.value})} className="outline-none text-xl" />
            </label>
         </div>
 
     
       </div>
       <div className="flex items-center justify-center space-between gap-12 ">
-       <button className="border .border.solid border-2 mt-4 mb-10  text-xl p-3 rounded-xl bg-white">Login</button>
-       <button className="border .border.solid border-2 mt-4 mb-10  text-xl p-3 rounded-xl bg-white ">Sign Up</button>
+       <button onClick={handleSubmit} className="border .border.solid border-2 mt-4 mb-10  text-xl p-3 rounded-xl bg-white">Login</button>
+       <button onClick={()=> navigate('/signup')} className="border .border.solid border-2 mt-4 mb-10  text-xl p-3 rounded-xl bg-white ">Create Account</button>
       </div>
     </div>
+    
   ) 
-}
+};
