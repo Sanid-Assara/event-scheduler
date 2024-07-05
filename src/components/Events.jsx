@@ -73,7 +73,7 @@ export default function Events() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col gap-8 mx-auto font-sans">
+    <div className="min-h-screen flex flex-col gap-8 mx-auto font-sans px-16">
       <p className="text-center font-extrabold text-5xl p-10">Events</p>
       <ul className=" flex flex-col gap-10 mx-auto pb-10">
         {storedEvents.map((event) => (
@@ -84,9 +84,9 @@ export default function Events() {
             <img
               src={event.img}
               alt={event.title}
-              className="w-full max-w-lg aspect-video object-cover h-auto"
+              className="w-full  max-w-lg aspect-video object-cover h-auto"
             />
-            <div className="flex flex-col justify-between w-full p-6">
+            <div className="flex flex-col max-w-lg justify-between w-full p-6">
               <p className="text-white bg-black w-fit px-4 py-2 font-semibold">
                 {event.date}
               </p>
@@ -96,8 +96,9 @@ export default function Events() {
               </p>
               <NavLink
                 to={`/events/${event.id}`}
+                onClick={window.scrollTo(0, 0)}
                 className={
-                  "outline my-2 px-4 py-2 w-full text-center font-bold hover:text-white hover:bg-black"
+                  "outline my-2 px-4 py-2 w-full  text-center font-bold hover:text-white hover:bg-black"
                 }
               >
                 Learn More
