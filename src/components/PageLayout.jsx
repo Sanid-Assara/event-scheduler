@@ -1,6 +1,18 @@
-import { Outlet, NavLink } from "react-router-dom";
+import { Outlet, NavLink, useNavigate } from "react-router-dom";
 
-export default function PageLayout() {
+export default function PageLayout({isLoggedIn,setisLoggedIn,responseData}) {
+
+
+const navigate = useNavigate();
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  setisLoggedIn(false);
+  navigate('/signin');
+
+}
+
+
+
   return (
     <>
       <header className="shadow-xl bg-white ">
@@ -27,8 +39,11 @@ export default function PageLayout() {
               >
                 Create an Event
               </NavLink>
-            </div>
+            </div>  
+            
+            {!isLoggedIn ? (
             <div className="flex justify-center items-center gap-x-10">
+              
               <NavLink
                 to="/signin"
                 className={({ isActive }) =>
@@ -45,7 +60,16 @@ export default function PageLayout() {
               >
                 You Don't Have an Account Yet?
               </NavLink>
-            </div>
+              
+            </div> ) : (
+
+             <div className="flex gap-10">
+              <p>You logged in as berkan12345@gmail.com</p>
+              
+              
+              <button onClick={()=>handleLogout()} >Logout</button>
+             </div>
+            )}
           </nav>
         </div>
       </header>
