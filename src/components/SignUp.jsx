@@ -38,10 +38,10 @@ export default function SignUp() {
   };
 
   return (
-    <div id="container" className="bg-red-500">
-      <div className="m-20 p-20 text-6xl text-white ">
-        <h1>Sign Up</h1>
-        <p className="">______</p>
+    <div id="container" className="bg-white">
+      <div className="m-16 p-16 text-6xl text-black ">
+      <div className="flex justify-center">Sign Up</div>
+      <div className="flex justify-center">_______</div>
       </div>
       <div className=" ">
         <div className="flex justify-center mb-10 gap-4  items-center  ">

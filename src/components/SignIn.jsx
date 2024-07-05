@@ -44,11 +44,13 @@ const navigate = useNavigate();
     
 
     
-    <div id="container" className="bg-red-500">
-      <div className="m-20 p-20 text-6xl text-white ">
-        <h1 >Log In</h1>
-        <p className="">______</p>
-        </div>
+    <div id="container" className="bg-white">
+
+      <div className=" text-6xl m-16 p-16 ">
+        <div className="flex justify-center">Log In</div>
+        <div className="flex justify-center">_______</div>
+      </div>
+
       <div className=" ">
         
         <div className="flex justify-center mb-10 gap-4  items-center  ">
@@ -65,12 +67,13 @@ const navigate = useNavigate();
            </label>
         </div>
 
-    
       </div>
+
       <div className="flex items-center justify-center space-between gap-12 ">
        <button onClick={handleSubmit} className="border .border.solid border-2 mt-4 mb-10  text-xl p-3 rounded-xl bg-white">Login</button>
        <button onClick={()=> navigate('/signup')} className="border .border.solid border-2 mt-4 mb-10  text-xl p-3 rounded-xl bg-white ">Create Account</button>
       </div>
+
     </div>
     
   ) 
