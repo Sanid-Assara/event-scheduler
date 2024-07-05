@@ -18,7 +18,7 @@ export default function Events() {
       date: "2024-07-30",
       title: "Agile Community Flensburg",
       location: "Flensburg, Germany",
-      img: "https://secure.meetupstatic.com/photos/event/1/4/5/e/600_513665214.webp?w=750",
+      img: "https://secure.meetupstatic.com/photos/event/4/b/2/7/600_520819239.webp?w=750",
       details:
         "The Agile Community Flensburg invites you to our monthly meetup. Discuss the latest trends in agile practices. Meet like-minded individuals and share your experiences. Engage in group activities and discussions. Light refreshments will be provided.",
     },
@@ -27,7 +27,7 @@ export default function Events() {
       date: "2024-09-10",
       title: "Lorem ipsum dolor sit amet",
       location: "Lorem, Germany",
-      img: "https://secure.meetupstatic.com/photos/event/1/4/5/e/600_513665214.webp?w=750",
+      img: "https://secure.meetupstatic.com/photos/event/d/d/6/a/600_515516682.webp?w=750",
       details:
         "Join us for a unique event in Lorem. This event will cover various topics in technology and innovation. Connect with professionals in your field. Enjoy keynote speeches from industry leaders. A networking session will follow the main event.",
     },
@@ -45,7 +45,7 @@ export default function Events() {
       date: "2024-11-20",
       title: "Startup Pitch Night",
       location: "Hamburg, Germany",
-      img: "https://secure.meetupstatic.com/photos/event/c/7/6/8/600_521931048.webp?w=750",
+      img: "https://secure.meetupstatic.com/photos/event/2/e/f/f/600_522012031.webp?w=750",
       details:
         "Don't miss the Startup Pitch Night in Hamburg. Watch startups pitch their ideas to a panel of judges. Network with entrepreneurs and investors. Gain insights from expert feedback sessions. Enjoy an evening of innovation and inspiration.",
     },
@@ -54,7 +54,7 @@ export default function Events() {
       date: "2024-12-05",
       title: "JavaScript Conference",
       location: "Munich, Germany",
-      img: "https://secure.meetupstatic.com/photos/event/c/7/6/8/600_521931048.webp?w=750",
+      img: "https://secure.meetupstatic.com/photos/event/5/1/3/d/600_522020797.webp?w=750",
       details:
         "The JavaScript Conference in Munich is a must-attend event. Learn about the latest advancements in JavaScript. Attend sessions by renowned speakers. Participate in coding workshops. Network with developers from around the world. Enjoy the vibrant tech community atmosphere.",
     },
@@ -73,7 +73,7 @@ export default function Events() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col gap-8 mx-auto font-sans">
+    <div className="min-h-screen flex flex-col gap-8 mx-auto font-sans px-16">
       <p className="text-center font-extrabold text-5xl p-10">Events</p>
       <ul className=" flex flex-col gap-10 mx-auto pb-10">
         {storedEvents.map((event) => (
@@ -84,9 +84,9 @@ export default function Events() {
             <img
               src={event.img}
               alt={event.title}
-              className="w-full max-w-lg aspect-video object-cover h-auto"
+              className="w-full  max-w-lg aspect-video object-cover h-auto"
             />
-            <div className="flex flex-col justify-between w-full p-6">
+            <div className="flex flex-col max-w-lg justify-between w-full p-6">
               <p className="text-white bg-black w-fit px-4 py-2 font-semibold">
                 {event.date}
               </p>
@@ -96,8 +96,9 @@ export default function Events() {
               </p>
               <NavLink
                 to={`/events/${event.id}`}
+                onClick={window.scrollTo(0, 0)}
                 className={
-                  "outline my-2 px-4 py-2 w-full text-center font-bold hover:text-white hover:bg-black"
+                  "outline my-2 px-4 py-2 w-full  text-center font-bold hover:text-white hover:bg-black"
                 }
               >
                 Learn More
