@@ -3,7 +3,7 @@ import { Outlet, NavLink } from "react-router-dom";
 export default function PageLayout() {
   return (
     <>
-      <header className="shadow-xl">
+      <header className="shadow-xl bg-white ">
         <div className=" flex justify-between items-center gap-x-16 max-w-7xl px-6 py-4 mx-auto ">
           <span className="outline px-4 py-2 flex-none cursor-pointer  text-xl  tracking-tight font-extrabold   ">
             <p>EVENT SCHEDULER</p>
