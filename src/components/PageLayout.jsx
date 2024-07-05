@@ -10,12 +10,41 @@ export default function PageLayout() {
           </span>
           <nav className="font-bold text-lg w-full flex justify-between items-center px-8">
             <div className="flex justify-center items-center gap-x-10">
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/create-event">Create an Event</NavLink>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "text-white bg-black px-4 py-2" : "px-4 py-2"
+                }
+              >
+                Home
+              </NavLink>
+
+              <NavLink
+                to="/create-event"
+                className={({ isActive }) =>
+                  isActive ? "text-white bg-black px-4 py-2" : "px-4 py-2 "
+                }
+              >
+                Create an Event
+              </NavLink>
             </div>
             <div className="flex justify-center items-center gap-x-10">
-              <NavLink to="/signin">Sign in</NavLink>
-              <NavLink to="/signup">You Don't Have an Account Yet?</NavLink>
+              <NavLink
+                to="/signin"
+                className={({ isActive }) =>
+                  isActive ? "text-white bg-black px-4 py-2" : "px-4 py-2 "
+                }
+              >
+                Sign in
+              </NavLink>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) =>
+                  isActive ? "text-white bg-black px-4 py-2" : "px-4 py-2 "
+                }
+              >
+                You Don't Have an Account Yet?
+              </NavLink>
             </div>
           </nav>
         </div>
