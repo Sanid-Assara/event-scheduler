@@ -15,7 +15,7 @@ export default function EventPage() {
   }, [id]);
 
   return event ? (
-    <div className="min-h-screen flex flex-col justify-start items-center gap-8 mx-auto font-sans px-10">
+    <div className="min-h-screen flex flex-col justify-start items-center gap-8 mx-auto font-sans px-10 pb-10">
       <p className="text-center font-extrabold text-5xl p-10">{event.title}</p>
       <div className="bg-white outline flex sm:flex-col lg:flex-row  gap-4 shadow-lg  ">
         <img
