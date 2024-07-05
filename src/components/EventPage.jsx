@@ -15,9 +15,11 @@ export default function EventPage() {
   }, [id]);
 
   return event ? (
-    <div className="bg-white  flex flex-col mx-auto max-w-xl my-10 p-8">
+    <div className="bg-white flex flex-col mx-auto max-w-xl my-10 p-8">
       <img src={event.img} alt={event.title} />
-      <h3>Details</h3>
+      <h3 className="text-white bg-black w-fit px-4 py-2 font-semibold">
+        Details
+      </h3>
       <p>{event.details}</p>
       <NavLink
         to={"/events"}

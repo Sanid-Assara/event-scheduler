@@ -6,7 +6,8 @@ export default function Events() {
     {
       id: 1,
       date: "2024-08-28",
-      title: "Agile Community Schleswig-Holstein",
+      title:
+        "Agile Community Schleswig-Holstein Agile Community Schleswig-Holstein",
       location: "Kiel, Germany",
       img: "https://secure.meetupstatic.com/photos/event/1/4/5/e/600_513665214.webp?w=750",
       details:
@@ -63,31 +64,45 @@ export default function Events() {
     localStorage.setItem("events", JSON.stringify(events));
     const storedEventsData = localStorage.getItem("events");
     if (storedEventsData) {
-      setStoredEvents(JSON.parse(storedEventsData));
+      const parsedEvents = JSON.parse(storedEventsData);
+      const sortedEvents = parsedEvents.sort(
+        (a, b) => new Date(a.date) - new Date(b.date)
+      );
+      setStoredEvents(sortedEvents);
     }
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col gap-8 mx-auto">
-      <p className="text-center">Events Page</p>
-      <ul className=" flex flex-col gap-6 mx-auto py-6">
+    <div className="min-h-screen flex flex-col gap-8 mx-auto font-sans">
+      <p className="text-center font-extrabold text-5xl p-10">Events</p>
+      <ul className=" flex flex-col gap-10 mx-auto pb-10">
         {storedEvents.map((event) => (
           <li
             key={event.id}
-            className="bg-white flex flex-col gap-4 shadow-lg p-6 "
+            className="bg-white outline flex sm:flex-col lg:flex-row  gap-4 shadow-lg  "
           >
-            <img src={event.img} alt={event.title} />
-            <h3>{event.title}</h3>
-            <p>{event.date}</p>
-            <p>{event.location}</p>
-            <NavLink
-              to={`/events/${event.id}`}
-              className={
-                "outline my-2 px-4 py-2 w-fit font-bold hover:text-white hover:bg-black"
-              }
-            >
-              Learn More
-            </NavLink>
+            <img
+              src={event.img}
+              alt={event.title}
+              className="w-full max-w-lg aspect-video object-cover h-auto"
+            />
+            <div className="flex flex-col justify-between w-full p-6">
+              <p className="text-white bg-black w-fit px-4 py-2 font-semibold">
+                {event.date}
+              </p>
+              <h3 className="font-bold text-2xl max-w-lg">{event.title}</h3>
+              <p className="font-semibold text-gray-800 text-xl">
+                {event.location}
+              </p>
+              <NavLink
+                to={`/events/${event.id}`}
+                className={
+                  "outline my-2 px-4 py-2 w-full text-center font-bold hover:text-white hover:bg-black"
+                }
+              >
+                Learn More
+              </NavLink>
+            </div>
           </li>
         ))}
       </ul>
