@@ -5,13 +5,15 @@ import { useNavigate } from "react-router-dom";
 
 
 
-export default function SignIn() {
+export default function SignIn({isLoggedIn, setisLoggedIn}) {
 
   const [user, setUser] = useState({
     email:"",
     password:""
   });
 const navigate = useNavigate();
+
+
 
   const handleSubmit = async () => {
     if (!user.email || !user.password) {
@@ -34,6 +36,7 @@ const navigate = useNavigate();
     } else {
       alert('You are succesfully logged in!');
       localStorage.setItem("token", data.token);
+      setisLoggedIn(true);
       navigate('/');
     }
   } catch (error) { 
